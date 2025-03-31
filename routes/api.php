@@ -13,8 +13,8 @@ Route::prefix("v1")->group(function(){
 
     ////PUBLIC
     Route::get("/public/{slug}",[FrontController::class,"categoria"]);
-    Route::get("/auth/register",[AuthController::class,"register"]);
-    Route::get("/auth/login",[AuthController::class,"login"]);
+    Route::post("/auth/register",[AuthController::class,"register"]);
+    Route::post("/auth/login",[AuthController::class,"login"]);
 
     ///PRIVATE
     Route::group(["middleware" => "auth:sanctum", function(){
