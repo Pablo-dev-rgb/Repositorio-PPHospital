@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -55,11 +55,20 @@ class AuthController extends Controller
             $user = Auth::User();
             $user->hasRole('admin');
 
-            $response["token"] = $user->createToken("PJ")->plainTextToken;
+            $response["token"] = $user->createToken("Micaela")->plainTextToken;
             $response["user"] = $user;
             $response["success"] = true;  
          }
 
          return response()->json($response, 200);
+    }
+
+    public function logout(){
+
+      $response = ["success"=>false];
+      auth()->user()->tokens()->delete();
+      $response = ["success"=>true, "message" => "Sesión cerrada."];
+      
+      return response()->json($response, 200);
     }
 }
