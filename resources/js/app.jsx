@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import LayoutPublic from "./Layouts/LayoutPublic";
+import Login from "./pageauth/Login";
+import ProtectedRoutes from "./pageauth/ProtectedRoutes";
 import LayoutAdmin from "./Layouts/LayoutAdmin";
 import LayoutClient from "./Layouts/LayoutClient";
 
-import ProtectedRoutes from "./pageauth/ProtectedRoutes";
 import PageHome from "./pagePublic/PageHome";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -16,6 +17,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<LayoutPublic/>}>
                     <Route index element={<PageHome/>}/>
+                    <Route path="/login" element={<Login/>} />
                 </Route>
             <Route element={<ProtectedRoutes/>}>
                 <Route path="/admin" element={<LayoutAdmin/>}>
