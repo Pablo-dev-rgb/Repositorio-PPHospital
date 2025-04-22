@@ -5,5 +5,6 @@ import axios from "axios";
  //Route
  export default{
     //Auth
-    getRegister:(data)=>axios.post(`${base_api_url}/auth/register`, data)
+    getRegister:(data)=>axios.post(`${base_api_url}/auth/register`, data),
+    getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data)
  }

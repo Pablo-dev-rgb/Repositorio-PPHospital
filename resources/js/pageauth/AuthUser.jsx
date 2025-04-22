@@ -6,21 +6,18 @@ const AuthUser = () =>{
 
     //obtencion de datos
     const getToken = () => {
-        const tokenString = sessionStorage.getItem("token")
-        const token = JSON.parse(tokenString)
-        return token;
+        const tokenString = sessionStorage.getItem("token");
+        return tokenString ? JSON.parse(tokenString) : null;
     }
 
     const getUser = () => {
-        const userString = sessionStorage.getItem("user")
-        const user = JSON.parse(userString)
-        return user;
+        const userString = sessionStorage.getItem("user");
+        return userString ? JSON.parse(userString) : null;
     }
 
     const getRol = () => {
-        const rolString = sessionStorage.getItem("rol")
-        const rol = JSON.parse(rolString)
-        return rol;
+        const rolString = sessionStorage.getItem("rol");
+        return rolString ? JSON.parse(rolString) : null;
     }
 
     //useState
