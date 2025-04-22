@@ -29,10 +29,10 @@ class AuthController extends Controller
         $input ["password"] = bcrypt($input["password"]);
 
         $user = User::create($input);
-        $user->assignRole("admin");
+        $user->assignRole("client");
 
         $response["success"] = true;
-        $response["token"] = $user->createToken("PJ")->plainTextToken;
+      //   $response["token"] = $user->createToken("PJ")->plainTextToken;
 
         return response()->json($response, 200);
     }
@@ -67,7 +67,7 @@ class AuthController extends Controller
 
       $response = ["success"=>false];
       auth()->user()->tokens()->delete();
-      $response = ["success"=>true, "message" => "Sesión cerrada."];
+      $response = ["success"=>true, "message" => "Sesion cerrada."];
       
       return response()->json($response, 200);
     }

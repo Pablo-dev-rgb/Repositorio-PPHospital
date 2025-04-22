@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const AuthUser = () =>{
-    const navigator = useNavigate();
+    const navigate = useNavigate();
 
     //obtencion de datos
     const getToken = () => {
