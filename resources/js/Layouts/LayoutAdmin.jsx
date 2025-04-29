@@ -17,7 +17,6 @@ const LayoutAdmin = () =>{
 
     return(
         <>
-        <h1>Admin</h1>
         <Navbar/>
         <Outlet/>
         <Footer/>

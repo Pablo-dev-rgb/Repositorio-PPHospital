@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AuthUser from "./AuthUser";
 import { useNavigate } from "react-router-dom";
 import Config from "../Config";
+import axios from "axios";
 
 const Login = () =>{
 
@@ -19,21 +20,21 @@ const Login = () =>{
 
     const submitLogin = async(e) => {
         e.preventDefault();
-    
-        Config.getLogin({email,password})
-        .then(({data})=>{
-            if(data.success){
-                //navigate("/login")
-                // console.log(data)
-                setToken(
-                data.user,
-                data.token,
-                data.user.roles[0].name
+        // await axios.get("/sanctum/csrf-cookie").then((response)=>{
+            Config.getLogin({email,password})
+            .then((data)=>{
+                if(data.data.success){
+                    // console.log(data)
+                    setToken(
+                    data.data.user,
+                    data.data.token,
+                    data.data.user.roles[0].name
                 )
             }else{
-                console.log(data.message)
+                setMessage(data.data.message)
             }
         })
+        // })
     }
 
     return(
