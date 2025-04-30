@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AuthUser from "./AuthUser";
 import { useNavigate } from "react-router-dom";
 import Config from "../Config";
-import axios from "axios";
+// import axios from "axios";
 
 const Login = () =>{
 
@@ -20,7 +20,7 @@ const Login = () =>{
 
     const submitLogin = async(e) => {
         e.preventDefault();
-        // await axios.get("/sanctum/csrf-cookie").then((response)=>{
+         await axios.get("/sanctum/csrf-cookie").then((response)=>{
             Config.getLogin({email,password})
             .then((data)=>{
                 if(data.data.success){
@@ -34,7 +34,7 @@ const Login = () =>{
                 setMessage(data.data.message)
             }
         })
-        // })
+     })
     }
 
     return(

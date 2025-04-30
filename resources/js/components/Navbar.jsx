@@ -7,12 +7,21 @@ const Navbar = () =>{
     const {getRol, getLogout, getToken} = AuthUser()
 
     const logoutUser = () =>{
-        Config.getLogout("/logout")
-        .then(response=>{
-            console.log(response)
-            getLogout();
-        })
-    }
+      const token = sessionStorage.getItem('XSRF-TOKEN'); // Obtén el valor de la cookie XSRF-TOKEN
+
+      Config.getLogout({
+          headers: {
+              'X-XSRF-TOKEN': token ? JSON.parse(token) : null, // Inclúyelo en los encabezados
+          }
+      })
+      .then(response=>{
+          console.log(response)
+          getLogout();
+      })
+      .catch(error => {
+          console.error("Error al hacer logout:", error);
+      });
+  }
 
     const renderLinks = () =>{
         if(getToken()){
