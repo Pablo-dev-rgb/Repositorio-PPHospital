@@ -51,8 +51,8 @@ class AuthController extends Controller
             return response()->json($response, 200);
          }
 
-         if(Auth::attempt(["email" => $request->email, "password" => $request->password])){
-            $user = Auth::User();
+         if(auth()->attempt(["email" => $request->email, "password" => $request->password])){
+            $user = auth()->user();
             $user->hasRole('admin');
 
             $response["token"] = $user->createToken("PJ")->plainTextToken;
@@ -64,13 +64,14 @@ class AuthController extends Controller
          return response()->json($response, 200);
     }
 
-    public function logout(Request $request){
+    public function logout(){
 
       $response = ["success"=>false];
-      $request->session()->invalidate();
-      $request->session()->regenerateToken();
-      $response = ["success"=>true, "message" => "Sesion cerrada."];
-      
+      auth()->user()->tokens()->delete();
+      $response = [
+         "success"=>true, 
+         "message" => "Sesion cerrada."
+      ];
       return response()->json($response, 200);
     }
 }

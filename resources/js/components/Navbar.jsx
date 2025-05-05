@@ -7,20 +7,19 @@ const Navbar = () =>{
     const {getRol, getLogout, getToken} = AuthUser()
 
     const logoutUser = () =>{
-      const token = sessionStorage.getItem('XSRF-TOKEN'); // Obtén el valor de la cookie XSRF-TOKEN
+      const token = getToken(); 
 
-      Config.getLogout({
-          headers: {
-              'X-XSRF-TOKEN': token ? JSON.parse(token) : null, // Inclúyelo en los encabezados
-          }
-      })
-      .then(response=>{
-          console.log(response)
+    if (token) {
+      Config.getLogout(token) 
+        .then(response => {
+          console.log(response);
           getLogout();
-      })
-      .catch(error => {
-          console.error("Error al hacer logout:", error);
-      });
+        })
+        .catch(error => {
+          console.error("Logout failed:", error);
+          // Handle logout error (e.g., display a message to the user)
+        });
+      }
   }
 
     const renderLinks = () =>{
@@ -45,21 +44,23 @@ const Navbar = () =>{
     }
     
     return(
-<nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
+<nav className="navbar navbar-expand-lg bg-light">
+  <div className="container">
     <a className="navbar-brand" href="/">Hospital</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
+      <ul className="navbar-nav mx-auto">
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/categorias">Categorias</a>
         </li>
-        {renderLinks()}
+      </ul>
+      <ul className="navbar-nav ms-auto">
+      {renderLinks()}
       </ul>
     </div>
   </div>

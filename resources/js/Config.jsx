@@ -7,6 +7,12 @@ import axios from "axios";
     //Auth
     getRegister:(data)=>axios.post(`${base_api_url}/auth/register`, data),
     getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data),
-    getLogout:()=>axios.post(`${base_api_url}/auth/logout`)
+    getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{}, // The request body is empty for logout in most cases
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          },
+        }
+      ),
 
  }
