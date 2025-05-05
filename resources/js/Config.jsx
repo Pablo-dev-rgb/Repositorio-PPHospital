@@ -7,12 +7,19 @@ import axios from "axios";
     //Auth
     getRegister:(data)=>axios.post(`${base_api_url}/auth/register`, data),
     getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data),
-    getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{}, // The request body is empty for logout in most cases
+    getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{},
         {
           headers: {
             Authorization: `Bearer ${token}`, // Include the token in the Authorization header
           },
         }
       ),
+    //Admin
+    getUserAll:(token)=>axios.get(`${base_api_url}/admin/user`,{
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 
  }

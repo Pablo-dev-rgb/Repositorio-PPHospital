@@ -10,7 +10,9 @@ class UserController extends Controller
 {
     //Con esto estamos mostrando la lista de los usuarios
     public function index(){
-        $data = User::get(["id", "name"]);
+        $data = User::whereHas("roles", function($q){
+            $q->where("name", "client");
+        })->get(["id", "name"]);
         return response()->json($data, 200);
     }
 
