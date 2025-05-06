@@ -1,18 +1,23 @@
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
-
+//layouts
 import LayoutPublic from "./Layouts/LayoutPublic";
+import LayoutAdmin from "./Layouts/LayoutAdmin";
+import LayoutClient from "./Layouts/LayoutClient";
+//public
+import PageHome from "./pagePublic/PageHome";
+import ProtectedRoutes from "./pageauth/ProtectedRoutes";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//auth
 import Login from "./pageauth/Login";
 import Register from "./pageauth/Register";
-import ProtectedRoutes from "./pageauth/ProtectedRoutes";
-import LayoutAdmin from "./Layouts/LayoutAdmin";
 import PanelAdmin from "./pageadmin/PanelAdmin";
-import LayoutClient from "./Layouts/LayoutClient";
 import PanelClient from "./pageclient/PanelClient";
+//rolAdmin
+import UserAll from "./pageadmin/UserAll";
+import UserUpdate from "./pageadmin/UserUpdate";
 
-import PageHome from "./pagePublic/PageHome";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
     return(
@@ -26,6 +31,8 @@ const App = () => {
             <Route element={<ProtectedRoutes/>}>
                 <Route path="/admin" element={<LayoutAdmin/>}>
                     <Route index element={<PanelAdmin/>} />
+                    <Route path="user" element={<UserAll/>} />
+                    <Route path="user/edit/:id" element={<UserUpdate/>} />
                 </Route>
                 <Route path="/client" element={<LayoutClient/>}>
                     <Route index element={<PageHome/>} />
@@ -43,8 +50,6 @@ if (document.getElementById('root')) {
     const Index = ReactDOM.createRoot(document.getElementById("root"));
 
     Index.render(
-        <React.StrictMode>
             <App/>
-        </React.StrictMode>
     )
 }
