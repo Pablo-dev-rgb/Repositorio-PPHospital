@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AuthUser from "../pageauth/AuthUser";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Config from "../Config";
 import Sidebar from "./Sidebar";
 
 const UserUpdate = () =>{
+    const navigate = useNavigate();
     const {getToken} = AuthUser();
     const {id} = useParams();
     const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const UserUpdate = () =>{
 
         const getUserById = async ()=>{
             Config.getUserById(token, id)
-            .then((data)=>{
+            .then(({data})=>{
                 setName(data.name)
                 setAprobado(data.aprobado)
             })
@@ -23,8 +24,13 @@ const UserUpdate = () =>{
         getUserById();
     },[])
 
-    const submitUpdate = async (e)=>{
+    const submitUpdate = async (ev)=>{
+        const token = getToken();
 
+        ev.preventDefault()
+        //console.log(aprobado,token,id);
+        await Config.getUserUpdate({aprobado}, token, id)
+        navigate("/admin/user")
     }
 
     return(
