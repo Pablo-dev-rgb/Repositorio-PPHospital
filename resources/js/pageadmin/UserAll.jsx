@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Config from "../Config";
 import AuthUser from "../pageauth/AuthUser";
+import { Link } from "react-router-dom";
 
 const UserAll = () =>{
     const {getToken} = AuthUser()
@@ -45,7 +46,9 @@ const UserAll = () =>{
                                         <tr key={user.id}>
                                             <td>{user.id}</td>
                                             <td>{user.name}</td>
-                                            <td></td>
+                                            <td>
+                                                <Link to={`edit/${user.id}`} className="btn btn-primary">Editar</Link>
+                                            </td>
                                         </tr>
                                         ))
                                     )}

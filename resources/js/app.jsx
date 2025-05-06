@@ -16,6 +16,7 @@ import PanelAdmin from "./pageadmin/PanelAdmin";
 import PanelClient from "./pageclient/PanelClient";
 //rolAdmin
 import UserAll from "./pageadmin/UserAll";
+import UserUpdate from "./pageadmin/UserUpdate";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
                 <Route path="/admin" element={<LayoutAdmin/>}>
                     <Route index element={<PanelAdmin/>} />
                     <Route path="user" element={<UserAll/>} />
+                    <Route path="user/edit/:id" element={<UserUpdate/>} />
                 </Route>
                 <Route path="/client" element={<LayoutClient/>}>
                     <Route index element={<PageHome/>} />

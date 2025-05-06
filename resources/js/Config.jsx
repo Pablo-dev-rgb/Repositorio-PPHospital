@@ -21,5 +21,18 @@ import axios from "axios";
         },
       }
     ),
+    getUserById:(token, id)=>axios.get(`${base_api_url}/admin/user/${id}`,{
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
+    getUserUpdate:(token, data, id) =>axios.put(`${base_api_url}/admin/user/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 
  }
