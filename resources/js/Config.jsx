@@ -34,5 +34,19 @@ import axios from "axios";
         },
       }
     ),
+    //Categoria
+    getCategoriaAll:(token)=>axios.get(`${base_api_url}/admin/categoria`,{
+      headers: {
+        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+      },
+    }
+  ),
+  getCategoriaStore:(token, data)=>axios.post(`${base_api_url}/admin/categoria`, data,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+      },
+    }
+  ),
 
  }
