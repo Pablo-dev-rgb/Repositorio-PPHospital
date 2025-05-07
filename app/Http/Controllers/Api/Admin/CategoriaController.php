@@ -11,7 +11,7 @@ class CategoriaController extends Controller
 {
     //Con esto estamos mostrando la lista de los usuarios
     public function index(){
-        $data = Categoria::orderBy("orden")->get(["id", "nombre"]);
+        $data = Categoria::orderBy("orden")->get(["id","orden", "nombre"]);
         return response()->json($data, 200);
     }
 
