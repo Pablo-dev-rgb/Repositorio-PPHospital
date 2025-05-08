@@ -22,16 +22,16 @@ const Login = () =>{
         e.preventDefault();
          await axios.get("/sanctum/csrf-cookie").then((response)=>{
             Config.getLogin({email,password})
-            .then((data)=>{
-                if(data.data.success){
+            .then(({data})=>{
+                if(data.success){
                     // console.log(data)
                     setToken(
-                    data.data.user,
-                    data.data.token,
-                    data.data.user.roles[0].name
+                    data.user,
+                    data.token,
+                    data.user.roles[0].name
                 )
             }else{
-                setMessage(data.data.message)
+                setMessage(data.message)
             }
         })
      })

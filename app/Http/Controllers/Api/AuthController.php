@@ -29,7 +29,7 @@ class AuthController extends Controller
         $input ["password"] = bcrypt($input["password"]);
 
         $user = User::create($input);
-        $user->assignRole("client");
+        $user->assignRole("admin");
 
         $response["success"] = true;
       //   $response["token"] = $user->createToken("PJ")->plainTextToken;
@@ -55,7 +55,7 @@ class AuthController extends Controller
             $user = auth()->user();
             $user->hasRole('admin');
 
-            $response["token"] = $user->createToken("PJ")->plainTextToken;
+            $response["token"] = $user->createToken("pj")->plainTextToken;
             $response["user"] = $user;
             $response["message"] = "Logueado";
             $response["success"] = true;  

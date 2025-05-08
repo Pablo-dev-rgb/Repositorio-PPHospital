@@ -63,12 +63,20 @@ import axios from "axios";
         },
       }
     ),
+<<<<<<< HEAD
 //Empresa
     getEmpresaAll:(token)=>axios.get(`${base_api_url}/admin/empresa`,
+=======
+    getCategoriaDeleteById:(token, id)=>axios.delete(`${base_api_url}/admin/categoria/${id}`,
+>>>>>>> 5af0b229d39643edbfcb990abf5c9be72732c94c
       {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
         },
       }
     ),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5af0b229d39643edbfcb990abf5c9be72732c94c
  }
