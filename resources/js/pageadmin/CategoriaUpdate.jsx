@@ -43,6 +43,7 @@ const CategoriaUpdate = () =>{
     const submitUpdate = async (ev)=>{
         ev.preventDefault()
         const token = getToken()
+        console.log(token)
         await Config.getCategoriaUpdate(token, {nombre,descripcion,orden,menu,file}, id)
         navigate("/admin/categoria")
     }
