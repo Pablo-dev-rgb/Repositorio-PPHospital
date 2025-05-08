@@ -49,7 +49,12 @@ class CategoriaController extends Controller
     public function update(Request $request, $id){
         //validacion...
         $data = Categoria::find($id);
-        $data->fill($request->all());
+        //$data->fill($request->all());
+        $data->nombre = $request->nombre;
+        $data->descripcion = $request->descripcion;
+        $data->orden = $request->orden;
+        $data->slug = Str::slug($request->nombre);
+        $data->menu = $request->menu ? 1 : 0;
         //upload file
         if($request->file){
             $img = $request->file;
@@ -66,7 +71,7 @@ class CategoriaController extends Controller
             $data->urlfoto = Str::slug($request->nombre) . "." .$image_type;
         }
 
-        $data->slug = Str::slug($request->nombre);
+        //$data->slug = Str::slug($request->nombre);
         $data->save();
         return response()->json($data, 200);
     }

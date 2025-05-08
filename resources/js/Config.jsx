@@ -35,18 +35,33 @@ import axios from "axios";
       }
     ),
     //Categoria
-    getCategoriaAll:(token)=>axios.get(`${base_api_url}/admin/categoria`,{
-      headers: {
-        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-      },
-    }
-  ),
-  getCategoriaStore:(token, data)=>axios.post(`${base_api_url}/admin/categoria`, data,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-      },
-    }
-  ),
+    getCategoriaAll:(token)=>axios.get(`${base_api_url}/admin/categoria`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
+    getCategoriaStore:(token, data)=>axios.post(`${base_api_url}/admin/categoria`, data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
+    getCategoriaById:(token, id)=>axios.get(`${base_api_url}/admin/categoria/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
+    getCategoriaUpdate:(token, data, id) =>axios.put(`${base_api_url}/admin/categoria/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 
  }
