@@ -63,5 +63,12 @@ import axios from "axios";
         },
       }
     ),
+    getCategoriaDeleteById:(token, id)=>axios.delete(`${base_api_url}/admin/categoria/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 
  }
