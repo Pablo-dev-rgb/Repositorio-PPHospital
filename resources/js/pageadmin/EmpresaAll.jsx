@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
 import AuthUser from "../pageauth/AuthUser";
+import Config from "../Config";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import Config from "../Config";
 
-const CategoriaAll = () =>{
+const EmpresaAll = () =>{
     const {getToken} = AuthUser()
-    const [categorias, setCategirias] = useState([]);
+    const [empresas, setEmpresas] = useState([]);
 
     useEffect(()=>{
-        _getCategoriaAll();
+        _getEmpresaAll();
     },[])
     
-    const _getCategoriaAll = async ()=>{
+    const _getEmpresaAll = async ()=>{
         const token = getToken()
         if(token){
-        const response = await Config.getCategoriaAll(token)
+        const response = await Config.getEmpresaAll(token)
         //console.log(response.data)
-        setCategirias(response.data)
+        setEmpresas(response.data)
         }
     }
-
-
     return(
     <div className="container bg-light">
         <div className="row">
@@ -29,7 +27,6 @@ const CategoriaAll = () =>{
             <div className="col-sm-9 mt-3 mb-3">
                 <div className="card">
                     <div className="card-body">
-                        <Link to={'/admin/categoria/create'} className="btn btn-primary">Crear categoria</Link>
                         <table className="table">
                             <thead>
                                 <tr>
@@ -37,18 +34,18 @@ const CategoriaAll = () =>{
                                 </tr>
                             </thead>
                             <tbody>
-                                { !categorias ? (
+                                { !empresas ? (
                                     <tr>
                                     <td>...loading</td>
                                     </tr>
                                 ) : (
-                                    categorias.map((categoria) => (
-                                    <tr key={categoria.id}>
-                                        <td>{categoria.id}</td>
-                                        <td>{categoria.nombre}</td>
-                                        <td>{categoria.orden}</td>
+                                    empresas.map((empresa) => (
+                                    <tr key={empresa.id}>
+                                        <td>{empresa.id}</td>
+                                        <td>{empresa.nombre}</td>
+                                        <td>{empresa.orden}</td>
                                         <td>
-                                            <Link to={`edit/${categoria.id}`} className="btn btn-primary">Editar</Link>
+                                            <Link to={`edit/${empresa.id}`} className="btn btn-primary">Editar</Link>
                                         </td>
                                     </tr>
                                     ))
@@ -63,4 +60,4 @@ const CategoriaAll = () =>{
     )
 }
 
-export default CategoriaAll;
+export default EmpresaAll;

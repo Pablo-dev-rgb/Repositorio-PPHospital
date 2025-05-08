@@ -4,7 +4,7 @@ import axios from "axios";
 
  //Route
  export default{
-    //Auth
+//Auth
     getRegister:(data)=>axios.post(`${base_api_url}/auth/register`, data),
     getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data),
     getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{},
@@ -14,7 +14,7 @@ import axios from "axios";
           },
         }
       ),
-    //Admin
+//Admin
     getUserAll:(token)=>axios.get(`${base_api_url}/admin/user`,{
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the Authorization header
@@ -34,7 +34,7 @@ import axios from "axios";
         },
       }
     ),
-    //Categoria
+//Categoria
     getCategoriaAll:(token)=>axios.get(`${base_api_url}/admin/categoria`,
       {
         headers: {
@@ -63,5 +63,12 @@ import axios from "axios";
         },
       }
     ),
-
+//Empresa
+    getEmpresaAll:(token)=>axios.get(`${base_api_url}/admin/empresa`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
  }
