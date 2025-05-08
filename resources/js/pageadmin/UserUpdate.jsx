@@ -5,6 +5,7 @@ import Config from "../Config";
 import Sidebar from "./Sidebar";
 
 const UserUpdate = () =>{
+    const navigate = useNavigate()
     const {getToken} = AuthUser();
     const {id} = useParams();
     const [name, setName] = useState('');
@@ -23,8 +24,11 @@ const UserUpdate = () =>{
         getUserById();
     },[])
 
-    const submitUpdate = async (e)=>{
-
+    const submitUpdate = async (ev)=>{
+        ev.preventDefault()
+        const token = getToken()
+        await Config.getUserUpdate(token, {aprobado}, id)
+        navigate("/admin/user")
     }
 
     return(
