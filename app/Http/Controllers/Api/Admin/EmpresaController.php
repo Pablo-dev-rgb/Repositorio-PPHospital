@@ -11,7 +11,7 @@ class EmpresaController extends Controller
 {
      //Con esto estamos mostrando la lista de los usuarios
      public function index(){
-        $data = Empresa::orderBy("orden")->get(["id", "nombre"]);
+        $data = Empresa::orderBy("orden")->get(["id", "orden", "nombre"]);
         return response()->json($data, 200);
     }
 
