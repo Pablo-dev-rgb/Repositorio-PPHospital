@@ -49,7 +49,7 @@ const EmpresaUpdate = () =>{
                                     </div>
                                     <div className="col-sm-8">
                                         <label>Nombre</label>
-                                        <input type="text" className="form-control" value={nombre} onChange={(e)=>setNombre(e.target.value)} />
+                                        <input type="text" className="form-control" disabled value={nombre} onChange={(e)=>setNombre(e.target.value)} />
                                     </div>
                                     <div className="col-sm-4">
                                         <label>Orden</label>

@@ -4,7 +4,7 @@ import Config from "../Config";
 
 const Navbar = () =>{
 
-    const {getRol, getLogout, getToken} = AuthUser()
+    const {getRol, getLogout, getToken, user} = AuthUser()
 
     const logoutUser = () =>{
       const token = getToken(); 
@@ -27,7 +27,7 @@ const Navbar = () =>{
             return(
                 <>
                 <li className="nav-item">
-                    <a className="nav-link" href={`/${getRol()}`} >Administracion</a>
+                    <a className="nav-link" href={`/${getRol()}`} >Administracion | {user.name} </a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#" onClick={logoutUser}>Logout</a>
