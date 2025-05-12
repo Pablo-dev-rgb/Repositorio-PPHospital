@@ -14,6 +14,7 @@ import Login from "./pageauth/Login";
 import Register from "./pageauth/Register";
 //rolClient
 import PanelClient from "./pageclient/PanelClient";
+import EmpresaAllClient from "./pageclient/EmpresaAll";
 //rolAdmin
 import PanelAdmin from "./pageadmin/PanelAdmin";
 import UserAll from "./pageadmin/UserAll";
@@ -50,6 +51,7 @@ const App = () => {
                 </Route>
                 <Route path="/client" element={<LayoutClient/>}>
                     <Route index element={<PanelClient/>} />
+                    <Route path="empresa" element={<EmpresaAllClient />} />
                 </Route>
             </Route>
             </Routes>

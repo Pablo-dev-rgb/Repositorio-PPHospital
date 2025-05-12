@@ -92,4 +92,12 @@ export default{
         },
       }
     ),
+//Client
+    getEmpresaAllClient:(token)=>axios.get(`${base_api_url}/client/empresa`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 }

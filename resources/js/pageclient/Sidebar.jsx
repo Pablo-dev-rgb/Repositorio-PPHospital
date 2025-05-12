@@ -5,7 +5,7 @@ const Sidebar = () => {
     return (
         <div className="col-sm-3 pt-3 pb-3">
             <div className="list-group">
-                <NavLink to={`/admin/empresa`}className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Empresa</NavLink>
+                <NavLink to={`/client/empresa`}className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Empresa</NavLink>
             </div>
         </div>
     )
