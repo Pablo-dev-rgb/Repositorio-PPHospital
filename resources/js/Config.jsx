@@ -100,4 +100,11 @@ export default{
         },
       }
     ),
+    getEmpresaStoreClient:(token, data)=>axios.post(`${base_api_url}/client/empresa`, data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 }

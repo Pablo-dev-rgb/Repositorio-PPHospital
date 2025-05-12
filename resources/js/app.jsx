@@ -15,6 +15,7 @@ import Register from "./pageauth/Register";
 //rolClient
 import PanelClient from "./pageclient/PanelClient";
 import EmpresaAllClient from "./pageclient/EmpresaAll";
+import EmpresaStoreClient from "./pageclient/EmpresaStore";
 //rolAdmin
 import PanelAdmin from "./pageadmin/PanelAdmin";
 import UserAll from "./pageadmin/UserAll";
@@ -24,6 +25,7 @@ import CategoriaStore from "./pageadmin/CategoriaStore";
 import CategoriaUpdate from "./pageadmin/CategoriaUpdate";
 import EmpresaAll from "./pageadmin/EmpresaAll";
 import EmpresaUpdate from "./pageadmin/EmpresaUpdate";
+
 
 
 const App = () => {
@@ -52,6 +54,8 @@ const App = () => {
                 <Route path="/client" element={<LayoutClient/>}>
                     <Route index element={<PanelClient/>} />
                     <Route path="empresa" element={<EmpresaAllClient />} />
+                    <Route path="empresa/create" element={<EmpresaStoreClient/>} />
+
                 </Route>
             </Route>
             </Routes>
