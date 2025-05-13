@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Config from "../Config";
 import Select from "../components/Select";
+import AuthUser from "../pageauth/AuthUser";
 
 const EmpresaUpdate = () =>{
     const navigate = useNavigate()
@@ -32,6 +33,7 @@ const EmpresaUpdate = () =>{
 
     useEffect(()=>{
         const getEmpresa =  async()=>{
+            const token = getToken()
             Config.getEmpresaByIdClient(token, id)
             .then(({data})=>{
                 //console.log(data)
