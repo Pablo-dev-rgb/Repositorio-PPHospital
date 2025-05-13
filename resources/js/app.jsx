@@ -16,6 +16,7 @@ import Register from "./pageauth/Register";
 import PanelClient from "./pageclient/PanelClient";
 import EmpresaAllClient from "./pageclient/EmpresaAll";
 import EmpresaStoreClient from "./pageclient/EmpresaStore";
+import EmpresaUpdateClient from "./pageclient/EmpresaUpdate";
 //rolAdmin
 import PanelAdmin from "./pageadmin/PanelAdmin";
 import UserAll from "./pageadmin/UserAll";
@@ -55,6 +56,7 @@ const App = () => {
                     <Route index element={<PanelClient/>} />
                     <Route path="empresa" element={<EmpresaAllClient />} />
                     <Route path="empresa/create" element={<EmpresaStoreClient/>} />
+                    <Route path="empresa/edit/:id" element={<EmpresaUpdateClient/>} />
 
                 </Route>
             </Route>

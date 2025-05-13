@@ -107,4 +107,18 @@ export default{
         },
       }
     ),
+    getEmpresaByIdClient:(token, id)=>axios.get(`${base_api_url}/client/empresa/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
+    getEmpresaUpdateClient:(token, data, id) =>axios.put(`${base_api_url}/client/empresa/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
+    ),
 }

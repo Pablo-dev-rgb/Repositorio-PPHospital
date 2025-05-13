@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthUser from "../pageauth/AuthUser";
 import Config from "../Config";
 import Sidebar from "./Sidebar";
+import Select from "../components/Select";
 
 const EmpresaStore = () =>{
     const navigate = useNavigate()
@@ -29,13 +30,18 @@ const EmpresaStore = () =>{
             setUrlfoto(e.target.result)
         }
     }
+
+    const getCategoriaId = (v)=>{
+        setCategoria_id(v)
+    }
     
     const submitStore = async(e)=>{
         const token = getToken()
         e.preventDefault()
-        await Config.getEmpresaStoreClient(token, {nombre, email, telefono,direccion, website, facebook, youtube, tiktok, descripcion, orden, urlfoto, categoria_id})
+        await Config.getEmpresaStoreClient(token, {nombre, email, telefono,direccion, website, facebook, youtube, tiktok, descripcion, urlfoto, orden, categoria_id})
         navigate("/client/empresa")
     }
+
     return(
          <div className="container bg-light">
             <div className="row">
@@ -45,51 +51,47 @@ const EmpresaStore = () =>{
                         <div className="card-body">
                             <form onSubmit={submitStore}>
                                 <div className="form-group row">
-                                    <div className="col-sm-8">
+                                    <div className="col-sm-6">
                                         <label>Nombre</label>
                                         <input type="text" className="form-control" value={nombre} onChange={(e)=>setNombre(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-8">
+                                    <div className="col-sm-3">
                                         <label>Email</label>
                                         <input type="email" className="form-control" value={email} onChange={(e)=>setEmail(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-8">
+                                    <div className="col-sm-3">
                                         <label>Telefono</label>
                                         <input type="tel" className="form-control" value={telefono} onChange={(e)=>setTelefono(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-8">
-                                        <label>Nombre</label>
-                                        <input type="text" className="form-control" value={nombre} onChange={(e)=>setNombre(e.target.value)} />
-                                    </div>
                                 </div>
                                 <div className="form-group row mt-3">
-                                    <div className="col-sm-9">
+                                    <div className="col-sm-6">
                                         <label>Dirección</label>
                                         <input type="text" className="form-control" value={direccion} onChange={(e)=>setDireccion(e.target.value)} />
                                     </div>
-                                <div className="col-sm-3">
-                                    <label>Orden</label>
-                                    <input type="number" className="form-control" value={orden} onChange={(e)=>setOrden(e.target.value)} />
-                                </div>
-                                <div className="col-sm-4">
-                                    <label>Categoria</label>
-                                    ///
-                                </div>
+                                    <div className="col-sm-3">
+                                        <label>Orden</label>
+                                        <input type="number" className="form-control" value={orden} onChange={(e)=>setOrden(e.target.value)} />
+                                    </div>
+                                    <div className="col-sm-3">
+                                        <label>Categoria</label>
+                                        <Select selected={getCategoriaId}/>
+                                    </div>
                                 </div>
                                 <div className="form-group row mt-3">
-                                    <div className="col-sm-9">
+                                    <div className="col-sm-3">
                                         <label>Website</label>
                                         <input type="url" className="form-control" value={website} onChange={(e)=>setWebsite(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-9">
+                                    <div className="col-sm-3">
                                         <label>Facebook</label>
                                         <input type="url" className="form-control" value={facebook} onChange={(e)=>setFacebook(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-9">
+                                    <div className="col-sm-3">
                                         <label>Youtube</label>
                                         <input type="url" className="form-control" value={youtube} onChange={(e)=>setYoutube(e.target.value)} />
                                     </div>
-                                    <div className="col-sm-9">
+                                    <div className="col-sm-3">
                                         <label>Tiktok</label>
                                         <input type="url" className="form-control" value={tiktok} onChange={(e)=>setTiktok(e.target.value)} />
                                     </div>
