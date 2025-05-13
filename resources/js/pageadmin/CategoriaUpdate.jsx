@@ -46,6 +46,7 @@ const CategoriaUpdate = () =>{
         await Config.getCategoriaUpdate(token, {nombre,descripcion,orden,menu,file}, id)
         navigate("/admin/categoria")
     }
+    
     return(
         <div className="container bg-light">
             <div className="row">

@@ -43,13 +43,14 @@ const EmpresaStore = () =>{
     }
 
     return(
-         <div className="container bg-light">
+        <div className="container bg-light">
             <div className="row">
                 <Sidebar/>
                 <div className="col-sm-9 mt-3 mb-3">
                     <div className="card">
                         <div className="card-body">
                             <form onSubmit={submitStore}>
+
                                 <div className="form-group row">
                                     <div className="col-sm-6">
                                         <label>Nombre</label>
@@ -64,6 +65,7 @@ const EmpresaStore = () =>{
                                         <input type="tel" className="form-control" value={telefono} onChange={(e)=>setTelefono(e.target.value)} />
                                     </div>
                                 </div>
+
                                 <div className="form-group row mt-3">
                                     <div className="col-sm-6">
                                         <label>Dirección</label>
@@ -78,6 +80,7 @@ const EmpresaStore = () =>{
                                         <Select selected={getCategoriaId}/>
                                     </div>
                                 </div>
+
                                 <div className="form-group row mt-3">
                                     <div className="col-sm-3">
                                         <label>Website</label>
@@ -96,6 +99,7 @@ const EmpresaStore = () =>{
                                         <input type="url" className="form-control" value={tiktok} onChange={(e)=>setTiktok(e.target.value)} />
                                     </div>
                                 </div>
+
                                 <div className="mt-3">
                                     <label>Descripcion</label>
                                     <textarea className="form-control" value={descripcion} onChange={(e)=>setDescripcion(e.target.value)} />
