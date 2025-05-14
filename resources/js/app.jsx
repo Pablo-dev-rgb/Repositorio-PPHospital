@@ -7,12 +7,12 @@ import LayoutPublic from "./Layouts/LayoutPublic";
 import LayoutAdmin from "./Layouts/LayoutAdmin";
 import LayoutClient from "./Layouts/LayoutClient";
 //public
-import PageHome from "./pagePublic/PageHome";
-import ProtectedRoutes from "./pageauth/ProtectedRoutes";
+import Home from "./pagePublic/Home";
 import Categorias from "./pagePublic/Categorias";
 import Categoria from "./pagePublic/Categoria";
 import NotFound from "./pagePublic/NotFound";
 //auth
+import ProtectedRoutes from "./pageauth/ProtectedRoutes";
 import Login from "./pageauth/Login";
 import Register from "./pageauth/Register";
 //rolClient
@@ -37,10 +37,10 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<LayoutPublic/>}>
-                    <Route index element={<PageHome/>}/>
                     <Route path="/login" element={<Login/>} />
                     <Route path="/register" element={<Register/>} />
                     <Route path="/*" element={<NotFound />} />
+                    <Route index element={<Home/>}/>
                     <Route path="/categorias" element={<Categorias />} />
                     <Route path="/categorias/:slug" element={<Categoria />} />
                 </Route>

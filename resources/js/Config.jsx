@@ -93,6 +93,7 @@ export default{
       }
     ),
 //Client
+//Empresa
     getEmpresaAllClient:(token)=>axios.get(`${base_api_url}/client/empresa`,
       {
         headers: {
@@ -121,4 +122,6 @@ export default{
         },
       }
     ),
+//Public
+getEmpresas:(data)=>axios.get(`${base_api_url}/public/empresas/${data}`),
 }
