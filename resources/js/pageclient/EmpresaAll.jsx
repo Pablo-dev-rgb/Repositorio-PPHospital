@@ -46,7 +46,7 @@ const EmpresaAll = () =>{
                                         <td>{empresa.nombre}</td>
                                         <td>{empresa.orden}</td>
                                         <td>
-                                            <Link to={`/client/edit/${empresa.id}`} className="btn btn-primary">Editar</Link>
+                                            <Link to={`/client/empresa/edit/${empresa.id}`} className="btn btn-primary">Editar</Link>
                                         </td>
                                     </tr>
                                     ))

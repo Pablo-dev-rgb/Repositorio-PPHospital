@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 //layouts
@@ -8,7 +9,9 @@ import LayoutClient from "./Layouts/LayoutClient";
 //public
 import PageHome from "./pagePublic/PageHome";
 import ProtectedRoutes from "./pageauth/ProtectedRoutes";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Categorias from "./pagePublic/Categorias";
+import Categoria from "./pagePublic/Categoria";
+import NotFound from "./pagePublic/NotFound";
 //auth
 import Login from "./pageauth/Login";
 import Register from "./pageauth/Register";
@@ -37,6 +40,9 @@ const App = () => {
                     <Route index element={<PageHome/>}/>
                     <Route path="/login" element={<Login/>} />
                     <Route path="/register" element={<Register/>} />
+                    <Route path="/*" element={<NotFound />} />
+                    <Route path="/categorias" element={<Categorias />} />
+                    <Route path="/categorias/:slug" element={<Categoria />} />
                 </Route>
             <Route element={<ProtectedRoutes/>}>
                 <Route path="/admin" element={<LayoutAdmin/>}>

@@ -23,7 +23,7 @@ const EmpresaUpdate = () =>{
     const [file, setFile] = useState("")
 
     const handleInputChange = async(e)=>{
-        let files = e.target.files
+        let files = e.target.files;
         let reader = new FileReader();
         reader.readAsDataURL(files[0])
         reader.onload = (e)=>{
@@ -54,16 +54,14 @@ const EmpresaUpdate = () =>{
         getEmpresa();
     },[])
 
-    const getCategoriaId = (v)=>{
-            setCategoria_id(v)
-        }
+    const getCategoriaId = (v)=>{ setCategoria_id(v) }
         
-    const submitUpdate = async(e)=>{
-        const token = getToken()
-        e.preventDefault()
-        await Config.getEmpresaUpdateClient(token, {nombre, email, telefono,direccion, website, facebook, youtube, tiktok, descripcion, urlfoto, orden, categoria_id, file}, id)
-        navigate("/client/empresa")
-    }
+    const submitUpdate = async (e) => {
+        e.preventDefault();
+        const token = getToken();
+        await Config.getEmpresaUpdateClient(token, {nombre,email,telefono,direccion,website,facebook,youtube,tiktok,descripcion,urlfoto,orden,categoria_id,file}, id);
+        navigate("/client/empresa");
+    };
 
     return(
         <div className="row justify-content-center">
@@ -128,6 +126,7 @@ const EmpresaUpdate = () =>{
                                 </div>
                                 <div className="mt-3">
                                     <label>Imagen</label>
+                                    <img src={`/img/empresa/${urlfoto}`} loading="lazy" width={200} height={200} className="img-fluid img-thumbnail" />
                                     <input type="file" className="form-control" onChange={(e)=>handleInputChange(e)} />
                                 </div>
                                 <div className="btn-group mt-3">

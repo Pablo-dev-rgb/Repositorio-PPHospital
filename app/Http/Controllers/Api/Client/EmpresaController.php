@@ -49,7 +49,18 @@ class EmpresaController extends Controller
     public function update(Request $request, $id){
         //validacion...
         $data = Empresa::find($id);
-        $data->fill($request->all());
+        //$data->fill($request->all());
+        $data->nombre = $request->nombre;
+        $data->email = $request->email;
+        $data->telefono = $request->telefono;
+        $data->direccion = $request->direccion;
+        $data->website = $request->website;
+        $data->facebook = $request->facebook;
+        $data->youtube= $request->youtube;
+        $data->tiktok = $request->tiktok;
+        $data->descripcion = $request->descripcion;
+        $data->orden = $request->orden;
+        $data->categoria_id = $request->categoria_id;
         //upload file
         if($request->file){
             $img = $request->file;
@@ -65,5 +76,8 @@ class EmpresaController extends Controller
             //save img in DB
             $data->urlfoto = Str::slug($request->nombre) . "." .$image_type;
         }
+
+        $data->save();
+        return response()->json($data, 200);
     }
 }
