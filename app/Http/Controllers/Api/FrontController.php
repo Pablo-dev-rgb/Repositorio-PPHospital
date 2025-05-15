@@ -12,4 +12,9 @@ class FrontController extends Controller
         $data = Empresa::orderByDesc("created_at")->take($request->quantity)->get(["id","nombre","descripcion"]);
         return response()->json($data, 200);
     }
+    public function search(Request $request){
+        $textBusqueda = $request->text;
+        $data = Empresa::where("nombre", "like", "%" . $textBusqueda . "%")->get(["id","nombre","descripcion"]);
+        return response()->json($data, 200);
+    }
 }
