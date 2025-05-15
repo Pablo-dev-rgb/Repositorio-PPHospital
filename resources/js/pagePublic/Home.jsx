@@ -3,6 +3,8 @@ import Config from "../Config";
 
 const Home = () =>{
     const [empresas, setEmpresas] = useState([])
+    const [modal, setModal] = useState(false)
+    const [datamodal, setDatamodal] = useState([])
     
     useEffect(()=>{
         getEmpresas()
@@ -17,6 +19,11 @@ const Home = () =>{
     const search = async (e)=>{
         const response = await Config.searchEmpresas({text:e})
         setEmpresas(response.data)
+    }
+
+    const showModal = (empresa)=>{
+        setModal(true);
+        setDatamodal(empresa);
     }
 
     return(
@@ -38,13 +45,16 @@ const Home = () =>{
                                         return(
                                             <div className="mt-3" key={empresa.id}>
                                                 <div className="card-body">
-                                                    <h3 className="fw-bolder">{empresa.nombre}</h3>
+                                                    <h3 className="fw-bolder">
+                                                        <a href="#" onClick={(e)=>showModal(empresa)}>{empresa.nombre}</a>
+                                                    </h3>
                                                     <p>{empresa.descripcion}</p>
                                                 </div>
                                             </div>
                                         )
                                     })
                                 }
+                                {modal && <Modal datamodal={datamodal} close={setModal} />}
                             </div>
                         </div>
                 </div>
