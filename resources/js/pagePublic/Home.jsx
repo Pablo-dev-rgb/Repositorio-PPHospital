@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Config from "../Config";
+import Modal from "../components/Modal";
 
 const Home = () =>{
     const [empresas, setEmpresas] = useState([])
@@ -21,7 +22,8 @@ const Home = () =>{
         setEmpresas(response.data)
     }
 
-    const showModal = (empresa)=>{
+    const showModal = (e,empresa)=>{
+        e.preventDefault()
         setModal(true);
         setDatamodal(empresa);
     }
@@ -46,7 +48,7 @@ const Home = () =>{
                                             <div className="mt-3" key={empresa.id}>
                                                 <div className="card-body">
                                                     <h3 className="fw-bolder">
-                                                        <a href="#" onClick={(e)=>showModal(empresa)}>{empresa.nombre}</a>
+                                                        <a href="#" onClick={(e)=>showModal(e,empresa)}>{empresa.nombre}</a>
                                                     </h3>
                                                     <p>{empresa.descripcion}</p>
                                                 </div>
