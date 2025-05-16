@@ -10,11 +10,13 @@ use Illuminate\Support\Str;
 
 class EmpresaController extends Controller
 {
+    //Obtener datos de usuario
      public function index(){
         $data = Empresa::whereUser_id(auth()->user()->id)->orderBy("orden")->get(["id", "orden", "nombre"]);
         return response()->json($data, 200);
     }
 
+    //Guardar datos
     public function store(Request $request){
         //aqui deberiamos agregar una validacion
         $data = new Empresa($request->all());

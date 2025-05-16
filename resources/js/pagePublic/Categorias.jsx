@@ -14,7 +14,31 @@ const Categorias = () =>{
     }
     
     return(
-        <div>Categorias</div>
+        <div className="container pt-5 pb-5">
+            <div className="row justity-content-center">
+                <div className="col-sm-8">
+                    <h1 className="text-center fw-bolder">Categorias</h1>
+                    <div className="row">
+                        {
+                            categorias.map((categoria)=>{
+                                return(
+                                    <div className="col-sm-4" key={categoria.id}>
+                                        <div className="card" >
+                                            <div className="card-body">
+                                                <img src={`/img/categoria/` +categoria.urlfoto} className="mx-auto d-block img-fluid" />
+                                            </div>
+                                            <div className="card-footer">
+                                                <a href="" className="btn btn-primary">{categoria.nombre}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
