@@ -126,4 +126,5 @@ export default{
     getEmpresas:(data)=>axios.get(`${base_api_url}/public/empresas/${data}`),
     searchEmpresas:(data)=>axios.post(`${base_api_url}/public/empresas/search`, data),
     CategoriaAll:()=>axios.get(`${base_api_url}/public/categorias`),
+    CategoriaBySlug:(slug)=>axios.get(`${base_api_url}/public/categorias/${slug}`)
 }

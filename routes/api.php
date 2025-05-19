@@ -13,7 +13,7 @@ Route::prefix("v1")->group(function(){
 
     ////PUBLIC
     Route::get("/public/empresas/{quantity}",[FrontController::class,"empresas"]);
-    //Route::get("/public/{slug}",[FrontController::class,"categoria"]);
+    Route::get("/public/categorias/{slug}",[FrontController::class,"categoria"]);
     Route::post("/public/empresas/search",[FrontController::class,"search"]);
     Route::get("/public/categorias",[FrontController::class,"categorias"]);
     

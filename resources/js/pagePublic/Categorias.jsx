@@ -28,7 +28,7 @@ const Categorias = () =>{
                                                 <img src={`/img/categoria/` +categoria.urlfoto} className="mx-auto d-block img-fluid" />
                                             </div>
                                             <div className="card-footer">
-                                                <a href="" className="btn btn-primary">{categoria.nombre}</a>
+                                                <a href={`/categorias/${categoria.slug}`} className="btn btn-primary">{categoria.nombre}</a>
                                             </div>
                                         </div>
                                     </div>

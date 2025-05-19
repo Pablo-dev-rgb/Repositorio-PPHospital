@@ -22,4 +22,14 @@ class FrontController extends Controller
         $data = Categoria::get();
         return response()->json($data, 200);
     }
+    public function categoria($slug){
+        $data = [];
+        $categoria = Categoria::whereSlug($slug)->first();
+        if(!empty($categoria))
+            $data = [
+                "categoria" => $categoria,
+                "empresas" => $categoria->empresas
+            ];
+        return response()->json($data, 200);
+    }
 }
