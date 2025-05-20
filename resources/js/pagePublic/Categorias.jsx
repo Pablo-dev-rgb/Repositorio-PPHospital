@@ -15,10 +15,10 @@ const Categorias = () =>{
     
     return(
         <div className="container pt-5 pb-5">
-            <div className="row justity-content-center">
+            <div className="row justify-content-center">
                 <div className="col-sm-8">
                     <h1 className="text-center fw-bolder">Categorias</h1>
-                    <div className="row">
+                    <div className="row mt-5">
                         {
                             categorias.map((categoria)=>{
                                 return(

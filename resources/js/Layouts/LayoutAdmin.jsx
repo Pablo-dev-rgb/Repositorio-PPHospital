@@ -19,7 +19,6 @@ const LayoutAdmin = () =>{
         <>
         <Navbar/>
         <Outlet/>
-        <Footer/>
         </>
     )
 }

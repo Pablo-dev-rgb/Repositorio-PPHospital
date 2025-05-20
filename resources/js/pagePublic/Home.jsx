@@ -36,7 +36,7 @@ const Home = () =>{
                     <div className="card mt-3 mb-3">
 
                         <div className="card-body">
-                            <input type="search" placeholder="Buscador" onChange={(e)=>search(e.target.value)} className="form-control" />
+                            <input type="search" placeholder="Buscador" onChange={(e)=>search(e.target.value)} className="form-control rounded-pill" />
                         </div>
 
                     </div>
@@ -46,9 +46,9 @@ const Home = () =>{
                                     empresas.map((empresa)=>{
                                         return(
                                             <div className="mt-3" key={empresa.id}>
-                                                <div className="card-body">
+                                                <div className="border-bottom">
                                                     <h3 className="fw-bolder">
-                                                        <a href="#" onClick={(e)=>showModal(e,empresa)}>{empresa.nombre}</a>
+                                                        <a href="#" onClick={(e)=>showModal(e,empresa)} className="text-decoration-none">{empresa.nombre}</a>
                                                     </h3>
                                                     <p>{empresa.descripcion}</p>
                                                 </div>

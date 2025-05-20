@@ -28,8 +28,8 @@ const Modal = ({datamodal, close}) =>{
                         </div>
                     </div>
                 </div>
-                <div className="modal_footer">
-                    <button onClick={()=>close(false)} className="btn btn-primary btn mty-3">Regresar</button>
+                <div className="modal_footer text-center">
+                    <button onClick={()=>close(false)} className="btn btn-secondary mt-3">Regresar</button>
                 </div>
             </div>
         </div>

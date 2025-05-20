@@ -45,7 +45,7 @@ const Register = () =>{
                             <input type="password" className="form-control mt-3" placeholder="Contraseña:" value={password} 
                             onChange={(e)=>setPassword(e.target.value)} required/>
                             
-                            <button onClick={submitRegistro} className="btn btn-primary w-100 mt-3">Enviar</button>
+                            <button onClick={submitRegistro} className="btn btn-primary w-100 mt-3">Registrarse</button>
                             <p className="text-center mt-3"><a href="#" className="small text-decoration-none">Términos y condiciones</a></p>
                         </div>
                     </div>

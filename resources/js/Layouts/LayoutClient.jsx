@@ -17,7 +17,6 @@ const LayoutClient = () =>{
         <>
         <Navbar/>
         <Outlet/>
-        <Footer/>
         </>
     )
 }

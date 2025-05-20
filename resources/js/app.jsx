@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../css/app.css';
 //layouts
 import LayoutPublic from "./Layouts/LayoutPublic";
 import LayoutAdmin from "./Layouts/LayoutAdmin";
@@ -29,12 +30,15 @@ import CategoriaStore from "./pageadmin/CategoriaStore";
 import CategoriaUpdate from "./pageadmin/CategoriaUpdate";
 import EmpresaAll from "./pageadmin/EmpresaAll";
 import EmpresaUpdate from "./pageadmin/EmpresaUpdate";
+import Footer from "./components/Footer";
 
 
 
 const App = () => {
     return(
         <Router>
+            <div className="App-Container">
+                <div className="main-content-wrapper">
             <Routes>
                 <Route path="/" element={<LayoutPublic/>}>
                     <Route path="/login" element={<Login/>} />
@@ -67,6 +71,9 @@ const App = () => {
                 </Route>
             </Route>
             </Routes>
+            </div>
+            <Footer />
+            </div>
         </Router>
     )
 }
